@@ -10,6 +10,7 @@ import json
 lista_campos = requests.get("https://plugcrm.net/api/v1/tasks?token=6205315036fb10000fb934fa")
 rd_teste_j2 = lista_campos.json()
 
+
 for key in rd_teste_j2:
     if key == "tasks":
         for key2 in rd_teste_j2[key]:

@@ -1,5 +1,8 @@
 import requests
 import json
+from flask import Flask
+
+api = Flask(__name__)
 
 lista_campos = requests.get("https://plugcrm.net/api/v1/deals?token=6205315036fb10000fb934fa")
 rd_teste_j2 = lista_campos.json()
@@ -73,7 +76,9 @@ for key in rd_teste_j2:
 
 rd_teste = requests.get("https://plugcrm.net/api/v1/deals?token=6205315036fb10000fb934fa",'params')
 rd_teste_j = rd_teste.json()
-print(rd_teste_j)
+@api.route('/')
+def index():
+    print(rd_teste_j)
 #.
            
        

@@ -10,7 +10,7 @@ rd_teste_j2 = lista_campos.json()
 for key in rd_teste_j2:
     if key == "deals":
         for key2 in rd_teste_j2[key]:
-            page = ""
+            page = "" 
             name = ""
             win = ""
             user_id = ""
@@ -74,7 +74,7 @@ for key in rd_teste_j2:
                   'hold':hold
                   }
 
-rd_teste = requests.get("https://plugcrm.net/api/v1/deals?token=6205315036fb10000fb934fa",'params')
+rd_teste = requests.get("https://plugcrm.net/api/v1/deals?token=6205315036fb10000fb934fa",params)
 rd_teste_j = rd_teste.json()
 #@api.route('/')
 #def index():

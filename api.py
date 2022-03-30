@@ -1,3 +1,4 @@
+from unittest import result
 import requests
 import json
 #from flask import Flask
@@ -74,14 +75,61 @@ for key in rd_teste_j2:
                   'hold':hold
                   }
 
-rd_teste = requests.get("https://plugcrm.net/api/v1/deals?token=6205315036fb10000fb934fa",params)
-rd_teste_j = rd_teste.json()
-#@api.route('/')
-#def index():
-f = open("Resultado.json","w")
-result_json = json.dumps(rd_teste_j)
+oportunidades = requests.get("https://plugcrm.net/api/v1/deals?token=6205315036fb10000fb934fa",params)
+result_oportunidades = oportunidades.json()
+
+tarefas = requests.get ("https://plugcrm.net/api/v1/tasks?token=6205315036fb10000fb934fa")
+result_tarefas = tarefas.json()
+
+anotações = requests.get ("https://plugcrm.net/api/v1/activities?token=6205315036fb10000fb934fa")
+result_anotações = anotações.json()
+
+lista_oportunidades = requests.get("https://plugcrm.net/api/v1/deals/ID_DA_OPORTUNIDADE/deal_products?token=6205315036fb10000fb934fa")
+result_list_oportunidades = lista_oportunidades.json()
+
+empresas = requests.get("https://plugcrm.net/api/v1/organizations/?token=6205315036fb10000fb934fa")
+result_empresas = empresas.json()
+
+contatos = requests.get("https://plugcrm.net/api/v1/contacts?token=6205315036fb10000fb934fa")
+result_contatos = contatos.json()
+
+produtos = requests.get("https://plugcrm.net/api/v1/products?token=6205315036fb10000fb934fa")
+result_produtos = produtos.json()
+
+f = open("Oportunidades.json","w")
+result_json = json.dumps(result_oportunidades)
 f.write(result_json)
 f.close()
-#.
-           
+
+f2 = open("Tarefas.json","w")
+result_json2 = json.dumps(result_tarefas)
+f2.write(result_json2)
+f2.close()
+
+f3 = open("Anotações.json","w")
+result_json3 = json.dumps(result_anotações)
+f3.write(result_json3)
+f3.close()
+
+f4 = open("Lista_oportunidades.json","w")
+result_json4 = json.dumps(result_list_oportunidades)
+f4.write(result_json4)
+f4.close()
+
+f5 = open("Empresas.json")
+result_json5 = json.dumps(result_empresas)
+f5.write(result_json5)
+f5.close()
+
+f6 = open("Contatos.json")
+result_json6 = json.dumps(result_contatos)
+f6.write(result_json6)
+f6.close() 
+
+f7=open("Produtos.json")
+result_json7 = json.dumps(result_produtos)
+f7.write = result_json7
+f7.close()
+
+          
        

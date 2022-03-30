@@ -84,10 +84,10 @@ result_tarefas = tarefas.json()
 anotações = requests.get ("https://plugcrm.net/api/v1/activities?token=6205315036fb10000fb934fa")
 result_anotações = anotações.json()
 
-lista_oportunidades = requests.get("https://plugcrm.net/api/v1/deals/ID_DA_OPORTUNIDADE/deal_products?token=6205315036fb10000fb934fa")
-result_list_oportunidades = lista_oportunidades.json()
+# lista_oportunidades = requests.get("https://plugcrm.net/api/v1/deals/ID_DA_OPORTUNIDADE/deal_products?token=6205315036fb10000fb934fa")
+# result_list_oportunidades = lista_oportunidades.json()
 
-empresas = requests.get("https://plugcrm.net/api/v1/organizations/?token=6205315036fb10000fb934fa")
+empresas = requests.get("https://plugcrm.net/api/v1/organizations/?token=6205315036fb10000fb934fa&page=1&limit=200")
 result_empresas = empresas.json()
 
 contatos = requests.get("https://plugcrm.net/api/v1/contacts?token=6205315036fb10000fb934fa")
@@ -111,22 +111,22 @@ result_json3 = json.dumps(result_anotações)
 f3.write(result_json3)
 f3.close()
 
-f4 = open("Lista_oportunidades.json","w")
-result_json4 = json.dumps(result_list_oportunidades)
-f4.write(result_json4)
-f4.close()
+# f4 = open("Lista_oportunidades.json","w")
+# result_json4 = json.dumps(result_list_oportunidades)
+# f4.write(result_json4)
+# f4.close()
 
-f5 = open("Empresas.json")
+f5 = open("Empresas.json","w")
 result_json5 = json.dumps(result_empresas)
 f5.write(result_json5)
 f5.close()
 
-f6 = open("Contatos.json")
+f6 = open("Contatos.json","w")
 result_json6 = json.dumps(result_contatos)
 f6.write(result_json6)
 f6.close() 
 
-f7=open("Produtos.json")
+f7=open("Produtos.json","w")
 result_json7 = json.dumps(result_produtos)
 f7.write = result_json7
 f7.close()
